@@ -1,4 +1,4 @@
-**Step 1:** create a context folder
+**Step 1:** create a contexts folder inside the src folder
 <br />
 
 **Step 2:** create a JS file that uses the createContext hook and assign a variable in it with the value of createContext, like this:
