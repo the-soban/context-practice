@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { LoginContext } from '../Contexts/LoginContext'
 
 const Login = () => {
-    const [username, setUsername] = useState('')
-    const [showProfile, setShowProfile] = useState(false)
+    const { setUsername, setPassword, setShowProfile } =
+        useContext(LoginContext)
 
     return (
         <div className="login">
@@ -13,7 +14,13 @@ const Login = () => {
                     setUsername(event.target.value)
                 }}
             />
-            <input type="text" placeholder="Enter password" />
+            <input
+                type="text"
+                placeholder="Enter password"
+                onChange={(event) => {
+                    setPassword(event.target.value)
+                }}
+            />
             <button
                 onClick={() => {
                     setShowProfile(true)
@@ -21,8 +28,6 @@ const Login = () => {
             >
                 Login
             </button>
-
-            {showProfile && <h2>{username}</h2>}
         </div>
     )
 }
